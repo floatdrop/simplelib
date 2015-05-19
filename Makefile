@@ -26,7 +26,7 @@ export PATH := bin:$(PATH)
 default: $(OUT)
 
 $(OUT): $(OBJS)
-	$(CC) $(LDFLAGS) -shared -o $@ $^
+	$(CC) $(LDFLAGS) -shared -undefined dynamic_lookup -o $@ $^
 
 obj/simplelib_wrap.o: simplelib_wrap.cxx inc/simpleclass.h
 	$(CC) $(CXXFLAGS) $(INCLUDES) -fpic -c $< -o $@
